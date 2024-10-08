@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Sticky Notes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+    h1 {
+      text-align: center;
+    }
+    #add-note-btn {
+      padding: 10px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    .note {
+      width: 200px;
+      padding: 10px;
+      margin: 10px;
+      display: inline-block;
+      border-radius: 5px;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+      color: white;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Sticky Notes</h1>
+  <button id="add-note-btn">Add Note</button>
+  <div id="notes-container"></div>
+
+  <script>
+    const colors = ['#ff6347', '#ffa500', '#3cb371', '#1e90ff', '#9370db'];
+
+    document.getElementById('add-note-btn').addEventListener('click', () => {
+      const note = document.createElement('div');
+      note.classList.add('note');
+      note.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      note.textContent = 'New Sticky Note';
+      document.getElementById('notes-container').appendChild(note);
+    });
+  </script>
+
+</body>
+</html>
+
